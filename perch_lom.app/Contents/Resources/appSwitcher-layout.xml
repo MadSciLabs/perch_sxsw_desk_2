@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<root>
+	<DBG />
+	<perchObject name="main">
+		
+		<position>Point(640,400,0)</position>
+		<timer name="T" message="S" duration="1" timerDelay="1" repeat="1"/>
+		<timer name="TT" message="S" duration="10" timerDelay="1" repeat="0"/>
+		
+		<content>
+			<rectangle name="test">
+				<dimension>Point(100,100,0)</dimension>
+				<fillEnabled>1</fillEnabled>
+				<fill_color>rgb(10,50,200)</fill_color>
+			</rectangle>
+			<!--<sensingArea name="sensor">rect(0,0,200,200)</sensingArea>-->
+		</content>
+		
+		<event type="onInit">
+			
+		</event>
+		
+		<event type="onMessage" message="S" name="T">
+			<python file="script.py" function="toggleObject" args="">test</python>
+			<!--show>main</show-->
+		</event>
+		<event type="onMessage" message="S" name="TT">
+			<show>test</show>
+		</event>
+		
+
+
+	</perchObject>
+	
+</root>	

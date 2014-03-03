@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<root>
+	<instance class="BACKGROUND" />
+
+<!--
+	<instance class="Table"> </instance>
+-->
+
+	<perchObject>
+
+              	<timer name="sparkleMasterTimer" message="masterSparkleMsg" timerDelay=".1" duration="8" repeat="1" />
+		<timer name="clearTimer" message="clearMsg" timerDelay=".1" duration="8" repeat="0" />
+
+		<event type="onMessage" name="clearTimer" message="clearMsg">
+                        <python file="script.py" function="debug" args="this is a clear msg">spot0</python>
+			
+			<tell_message message="stopShow">sketch1</tell_message>
+			<tell_message message="stopShow">sketch2</tell_message>
+			<tell_message message="stopShow">sketch3</tell_message>
+			<tell_message message="stopShow">sketch4</tell_message>
+		</event>
+
+                <event type="onMessage" message="masterSparkleMsg" name="sparkleMasterTimer">
+                        <python file="script.py" function="masterSparkle" args="">bg</python>
+                </event>
+
+                <event type="onIdle">
+                        <python file="script.py" function="debug" args="Idle">spot1</python>
+                </event>
+
+                <event type="onInit">
+<!--
+			<hide>sketch1</hide>
+			<hide>sketch2</hide>
+			<hide>sketch3</hide>
+			<hide>sketch4</hide>
+-->
+
+			<hide>video1</hide>
+			<hide>video2</hide>
+			<hide>video3</hide>
+			<hide>video0</hide>
+
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="5" timerDelay=".1" timerRepeat="1"/>
+                </event>
+
+		<event type="onMessage" message="start_video" name="spot0">
+<!--
+                        <python file="script.py" function="debug" args="start video 0">spot0</python>
+			<show>video0</show>
+			<tell_message message="startVideo">video0</tell_message>
+-->
+                </event>
+		<event type="onMessage" message="start_video" name="spot1">
+
+			<hide>sketch1</hide>
+			<hide>sketch2</hide>
+			<hide>sketch3</hide>
+			<hide>sketch4</hide>
+			<hide>sketch_back</hide>
+
+			<show>video1</show>
+			<tell_message message="startVideo">video1</tell_message>
+                </event>
+		<event type="onMessage" message="start_video" name="spot2">
+<!--
+			<show>video2</show>
+			<tell_message message="startVideo">video2</tell_message>
+-->
+                </event>
+		<event type="onMessage" message="start_video" name="spot3">
+<!--
+			<show>video3</show>
+			<tell_message message="startVideo">video3</tell_message>
+-->
+                </event>
+
+
+		<event type="onMessage" message="hide_video" name="video0">
+			<hide>video0</hide>
+                </event>
+		<event type="onMessage" message="hide_video" name="video1">
+			<hide>video1</hide>
+
+			<show>sketch1</show>
+			<show>sketch2</show>
+			<show>sketch3</show>
+			<show>sketch4</show>
+			<show>sketch_back</show>
+
+                </event>
+		<event type="onMessage" message="hide_video" name="video2">
+			<hide>video2</hide>
+                </event>
+		<event type="onMessage" message="hide_video" name="video3">
+			<hide>video3</hide>
+                </event>
+
+<!--
+		<event type="onMessage" message="stop_preview" name="spot0">
+			<python file="script.py" function="debug" args="Catch0">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+                        <python file="script.py" function="lockSpot" args="0">spot0</python>
+                </event>
+		<event type="onMessage" message="stop_preview" name="spot1">
+			<python file="script.py" function="debug" args="Catch1">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+                </event>
+		<event type="onMessage" message="stop_preview" name="spot2">
+			<python file="script.py" function="debug" args="Catch2">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+                </event>
+		<event type="onMessage" message="stop_preview" name="spot3">
+			<python file="script.py" function="debug" args="Catch3">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+                </event>
+
+		<event type="onMessage" message="start_preview" name="spot0">
+			<python file="script.py" function="debug" args="Catch0">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="3" timerDelay=".1" timerRepeat="1"/>
+                </event>
+		<event type="onMessage" message="start_preview" name="spot1">
+			<python file="script.py" function="debug" args="Catch1">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="3" timerDelay=".1" timerRepeat="1"/>
+                </event>
+		<event type="onMessage" message="start_preview" name="spot2">
+			<python file="script.py" function="debug" args="Catch2">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="3" timerDelay=".1" timerRepeat="1"/>
+                </event>
+		<event type="onMessage" message="start_preview" name="spot3">
+			<python file="script.py" function="debug" args="Catch3">spot0</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="3" timerDelay=".1" timerRepeat="1"/>
+                </event>
+-->
+
+		<content>
+                <instance class="spotlight" replace="0" >
+			<name input="tname">spot0</name>
+                        <position input="pos">Point(150,500,0)</position>
+                </instance> 
+                <instance class="spotlight" replace="1" >
+			<name input="tname">spot1</name>
+                        <position input="pos">Point(500,700,0)</position>
+                </instance>
+                <instance class="spotlight" replace="2" >
+			<name input="tname">spot2</name>
+                        <position input="pos">Point(800,600,0)</position>
+                </instance>
+                <instance class="spotlight" replace="3" >
+			<name input="tname">spot3</name>
+                        <position input="pos">Point(1100,350,0)</position>
+                </instance>
+
+                <image name="sketch_back">
+                    <file input="content_image">images/sketch_back.png</file>
+                        <position input="pos">Point(640,300,0)</position>
+                    <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="sinusInOutFunc" />
+                    <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="sinusInOutFunc" />
+                </image>
+
+		<instance class="sketchShow" replace="0">
+			<name input="tname">sketch1</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+		<instance class="sketchShow" replace="1">
+			<name input="tname">sketch2</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+		<instance class="sketchShow" replace="2">
+			<name input="tname">sketch3</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+		<instance class="sketchShow" replace="3">
+			<name input="tname">sketch4</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+
+<!--
+		<instance class="videos" replace="0">
+			<name input="vname">video0</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+-->
+
+		<instance class="videos" replace="1">
+			<name input="vname">video1</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+
+<!--
+		<instance class="videos" replace="2">
+			<name input="vname">video2</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+
+		<instance class="videos" replace="3">
+			<name input="vname">video3</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+-->
+		</content>
+	</perchObject>
+
+</root>

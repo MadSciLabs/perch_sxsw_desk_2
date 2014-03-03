@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<item name="root" type="6">
+	<item name="ObjectSettings" type="3">Point(113,65,0)</item>
+	<item name="buttonData" type="2">''''''''''''''''''''''''''''''''''''</item>
+	<item name="defaultObject_range" type="3">Point(0,0,0)</item>
+	<item name="framesPersistent" type="0">60</item>
+	<item name="objectHoverRange" type="3">Point(0,0,0)</item>
+	<item name="objectSensingData" type="2">''''''''''''''''''''''''''''''''''''</item>
+	<item name="objectSensor_range" type="3">Point(0,0,0)</item>
+	<item name="objectTouchRange" type="3">Point(0,0,0)</item>
+	<item name="percentInRange_threshold" type="1">0.006667</item>
+	<item name="showHide" type="0">0</item>
+</item>

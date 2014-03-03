@@ -1,0 +1,10 @@
+Script started on Wed Sep 18 16:54:05 2013
+[?1034hbash-3.2$ :q
+bash: :q: command not found
+bash-3.2$ 
+bash-3.2$ pwd
+/Users/admin/Desktop/exampleForAdam/resources
+bash-3.2$ exit
+exit
+
+Script done on Wed Sep 18 16:54:10 2013

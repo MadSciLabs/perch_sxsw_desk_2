@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<item name="root" type="6">
+	<item name="VisionDisplay" type="3">Point(113,46,0)</item>
+	<item name="drawVision" type="0">1</item>
+	<item name="showHide" type="0">0</item>
+</item>

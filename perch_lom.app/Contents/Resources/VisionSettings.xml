@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<item name="root" type="6">
+	<item name="VisionSettings" type="3">Point(899,55,0)</item>
+	<item name="areaSize" type="0">60</item>
+	<item name="centerOffset" type="1">-68.800003</item>
+	<item name="drawVision" type="0">1</item>
+	<item name="expFinger" type="1">1.599998</item>
+	<item name="flipImage" type="0">0</item>
+	<item name="hoverHeight" type="3">Point(0,0,0)</item>
+	<item name="lerpSpeed" type="1">0.566667</item>
+	<item name="lowFingerThreshold" type="1">358.399994</item>
+	<item name="maxDist" type="1">200.800003</item>
+	<item name="maxTouchVelocity" type="1">15.000000</item>
+	<item name="medianKernel" type="0">0</item>
+	<item name="pressCounterMin" type="0">2</item>
+	<item name="showHide" type="0">1</item>
+	<item name="threshold" type="0">10</item>
+	<item name="touchHeight" type="3">Point(3.33333,43.3334,0)</item>
+	<item name="useRadialDist" type="0">0</item>
+</item>

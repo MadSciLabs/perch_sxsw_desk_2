@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<item name="root" type="6">
+	<item name="GeneralSettings" type="3">Point(142,102,0)</item>
+	<item name="bleedHandles" type="0">0</item>
+	<item name="bleedWidth" type="0">450</item>
+	<item name="drawBleed" type="0">1</item>
+	<item name="drawDepth" type="0">0</item>
+	<item name="drawFingerTracking" type="0">0</item>
+	<item name="drawSensingAreas" type="0">1</item>
+	<item name="fullScreen" type="0">0</item>
+	<item name="handRegionScale" type="1">-72.639999</item>
+	<item name="hyperActiveSimulator" type="0">0</item>
+	<item name="kinectEnabled" type="0">0</item>
+	<item name="showHide" type="0">0</item>
+	<item name="stats" type="2">''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''</item>
+	<item name="useBleedAsVisionMask" type="0">1</item>
+	<item name="useHandRegion" type="0">1</item>
+</item>

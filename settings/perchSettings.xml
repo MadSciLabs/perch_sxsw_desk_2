@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<root>
+	<resources path="resources" />
+	<layout file="lom-layout.xml" />
+	<ping>20000</ping>
+	<template file="lom-templates.xml" />
+	<debug>0</debug>
+	<textSize>10</textSize>
+	<idle>10</idle>
+</root>

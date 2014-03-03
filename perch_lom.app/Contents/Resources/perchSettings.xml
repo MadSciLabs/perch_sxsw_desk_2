@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<root>
+	<resources path="resources" />
+	<layout file="appSwitcher-layout.xml" />
+	<ping>900</ping>
+	<template file="appSwitcher-templates.xml" />
+	<debug>1</debug>
+	<idle>20</idle>
+	<init>1</init>
+	<textSize>10</textSize>
+	<kinectRes>640</kinectRes>
+</root>

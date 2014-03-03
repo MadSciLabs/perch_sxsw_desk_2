@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<root>
+	
+	<class name="BACKGROUND">
+
+                <perchObject>
+
+<!--
+                <timer name="sparkleMasterTimer" message="masterSparkleMsg" timerDelay=".1" duration="5" repeat="1" />
+
+                <event type="onMessage" message="masterSparkleMsg" name="sparkleMasterTimer">
+                        <python file="script.py" function="masterSparkle" args="">bg</python>
+                </event>
+
+                <event type="onInit">
+                        <python file="script.py" function="debug" args="Init BG">bg</python>
+                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="3" timerDelay=".1" timerRepeat="1"/>
+                </event>
+-->
+
+                        <content>
+               <image name="bg">
+                            <position>Point(640,400,0)</position>
+			<file>./assets/background/bg.png</file>
+               </image>
+                        </content>
+             
+                </perchObject>
+		
+	</class>
+
+    	<class name="sketchShow">
+
+                <perchObject>
+                        <position input="pos">Point(640,300,0)</position>
+			<name input="tname">noname</name>
+
+                	<timer name="sketch" message="sketchMsg" timerDelay=".1" duration="60000" repeat="1" />
+
+                        <content>
+<!--
+                        	<image name="one">
+                                	<file input="content_image">images/sketch_back.png</file>
+                                	<show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="sinusInOutFunc" />
+                                	<hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="sinusInOutFunc" />
+                        	</image>
+-->
+				<instance class="sketchSet" replace="*">
+					<name input="sname">set1</name>
+				</instance>
+
+                        </content>
+
+                        <event type="onInit">
+                                <hide>set1</hide>
+                        	<timerReset name="sketch" message="sketchMsg" timerDuration="5" timerDelay=".1" timerRepeat="1" />
+                        </event>
+
+                        <event type="onMessage" message="stopShow">
+                        	<python file="script.py" function="debug" args="Hide All">set1</python>
+				<tell_message message="hideAll">set1</tell_message>
+                        	<python file="script.py" function="debug" args="Hide All After">set1</python>
+                        </event>
+
+                        <event type="onMessage" message="switchSlide" name="slideshowTimer">
+				<show>set1</show>
+                        </event>
+
+                	<event type="onMessage" message="sketchMsg" name="sketch" >
+                        	<python file="script.py" function="sketch" args="*">set1</python>
+                	</event>
+
+                </perchObject>
+        </class>
+
+    	<class name="sketchSet">
+
+                <perchObject>
+
+			<name input="sname">noname</name>
+
+			<content>
+                        	<image name="one">
+					<position input="pos">Point(130,0,0)</position>
+                                	<file input="content_image">images/sketches/*/1.png</file>
+                                	<show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" delay="0" alpha="1" duration="1" repeat="none" function="sinusInOutFunc" />
+                                	<hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration="1" repeat="none" function="sinusInOutFunc" />
+                        	</image>
+
+                        	<image name="two">
+					<position input="pos">Point(-70,-100,0)</position>
+                                	<file input="content_image">images/sketches/*/2.png</file>
+                                	<show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" delay="1" alpha="1" duration="1" repeat="none" function="sinusInOutFunc" />
+                                	<hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration="1" repeat="none" function="sinusInOutFunc" />
+                        	</image>
+
+                        	<image name="three">
+					<position input="pos">Point(-170,100,0)</position>
+                                	<file input="content_image">images/sketches/*/3.png</file>
+                                	<show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" delay="2" alpha="1" duration="1" repeat="none" function="sinusInOutFunc" />
+                                	<hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration="1" repeat="none" function="sinusInOutFunc" />
+                        	</image>
+			</content>
+
+                        <event type="onInit">
+                                <hide>one</hide>
+                                <hide>two</hide>
+                                <hide>three</hide>
+                        </event>
+
+			<event type="onShow">
+                                <show>one</show>
+                                <show>two</show>
+                                <show>three</show>
+			</event>
+
+			<event type="onMessage" message="hideAll">
+                                <hide>one</hide>
+                                <hide>two</hide>
+                                <hide>three</hide>
+			</event>
+
+		</perchObject>
+	</class>
+
+        <class name="spotlight">
+          <perchObject>
+
+		<name input="tname">noname</name>
+                <position name="pos" input="pos">Point(0,0,0)</position>
+
+                <timer name="video" message="videoMsg" timerDelay="1" duration="60000" repeat="none" />
+                <timer name="sparkle" message="sparkleMsg" timerDelay="10" duration="20" repeat="1" />
+
+                <event type="onInit">
+                        <hide>one</hide>
+                        <timerReset name="sparkle" message="sparkleMsg" timerDuration="5" timerDelay=".1" timerRepeat="1" />
+                </event>
+
+                <content>
+                        <image name="one">
+                                <file input="content_image">images/spotlight_circle.png</file>
+                                <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="linearFunc" />
+                                <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
+                        </image>
+
+                        <image name="star">
+                                <file input="content_image">images/spotlight_circle.png</file>
+                                <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="linearFunc" />
+                                <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
+                        </image>
+
+                        <sensingArea input="sensing">rect(0,0,100,100)</sensingArea>
+                </content>
+
+                <event type="onPresent">
+                        <!--timerReset name="over" message="video_countdown" timerDuration="1" timerDelay=".1" timerRepeat="0"/-->
+                        <!--bubble_message message="stop_preview" /-->
+			<show>star</show>
+                        <timerReset name="videoTimer" message="videoMsg" timerDuration="2" timerDelay=".1" timerRepeat="0" />
+                </event>
+
+                <event type="onNotPresent">
+                        <!--timerReset name="over" message="video_countdown" timerDuration="60000" timerDelay=".1" timerRepeat="0"/-->
+                        <!--bubble_message message="start_preview" /-->
+			<hide>star</hide>
+                        <timerReset name="videoTimer" message="videoMsg" timerDuration="60000" timerDelay=".1" timerRepeat="0" />
+                </event>
+
+                <event type="onMessage" message="videoMsg" name="videoTimer">
+			<python file="script.py" function="lockSpot" args="*">one</python>
+                        <bubble_message message="start_video" />
+                </event>
+
+                <event type="onMessage" message="sparkleMsg" name="sparkle" >
+
+                        <python file="script.py" function="sparkle" args="*">one</python>
+                        <!--bubble_message message="start_video_*" /-->
+                </event>
+
+          </perchObject>
+        </class>
+
+	<class name="videos">
+    
+                <perchObject>
+                        <position input="pos">Point(0,0,0)</position>
+                        <name input="vname">noname</name>
+
+                        <content>
+
+                        <video name="tvideo" loop="regular" autoplay="0" delay="1">
+                                <file input="video_file">videos/sxsw/0.mov</file>
+                                <position>Point(0,0,0)</position>
+                                <scale>Point(.8,.8,1)</scale>
+                        </video>
+
+                        <image name="off">
+                                <file>images/off.png</file>
+                                <position>Point(-275,225,0)</position>
+                                <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="linearFunc" />
+                                <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
+                        </image>
+
+                  	<handSensor input="handSensing1">rect(-300,200,20,20)</handSensor>
+                        </content>
+
+
+                	<event type="onTouchPress">
+				<hide>tvideo</hide>
+                        	<bubble_message message="hide_video" />
+                	</event>
+
+			<event type="onMessage" message="startVideo">
+                        	<python file="script.py" function="debug" args="START VIDEO NOW">tvideo</python>
+                                <show>tvideo</show>
+                        </event>
+
+                        <event type="onInit">
+				<hide>tvideo</hide>
+                        </event>
+                </perchObject>
+   	</class>
+
+</root>
