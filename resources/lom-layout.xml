@@ -108,6 +108,7 @@
 
 
 		<content>
+
                 <instance class="spotlight" replace="0" >
 			<name input="tname">spot0</name>
                         <position input="pos">Point(150,500,0)</position>
@@ -133,21 +134,25 @@
                 </image>
 
 		<instance class="videos" replace="0">
+			<file input="video_file">videos/sxsw/0.mov</file>
 			<name input="vname">video0</name>
                         <position input="pos">Point(640,300,0)</position>
 		</instance>
 
 		<instance class="videos" replace="1">
+			<file input="video_file">videos/sxsw/1.mov</file>
 			<name input="vname">video1</name>
                         <position input="pos">Point(640,300,0)</position>
 		</instance>
 
 		<instance class="videos" replace="2">
+			<file input="video_file">videos/sxsw/2.mov</file>
 			<name input="vname">video2</name>
                         <position input="pos">Point(640,300,0)</position>
 		</instance>
 
 		<instance class="videos" replace="3">
+			<file input="video_file">videos/sxsw/3.mov</file>
 			<name input="vname">video3</name>
                         <position input="pos">Point(640,300,0)</position>
 		</instance>

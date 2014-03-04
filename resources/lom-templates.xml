@@ -114,6 +114,7 @@
 
                 <event type="onInit">
                         <hide>one</hide>
+                        <python file="script.py" function="debug" args="here">one</python>
                         <timerReset name="sparkle" message="sparkleMsg" timerDuration="5" timerDelay=".1" timerRepeat="1" />
                 </event>
 
@@ -124,11 +125,18 @@
                                 <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
                         </image>
 
+                        <video name="star" loop="regular" autoplay="0" delay="1">
+                                <file input="video_file">videos/shine.mov</file>
+                                <position>Point(0,0,0)</position>
+                        </video>
+
+<!--
                         <image name="star">
                                 <file input="content_image">images/spotlight_circle.png</file>
                                 <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="linearFunc" />
                                 <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
                         </image>
+-->
 
                         <sensingArea input="sensing">rect(0,0,100,100)</sensingArea>
                 </content>
