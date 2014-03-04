@@ -5,19 +5,6 @@
 
                 <perchObject>
 
-<!--
-                <timer name="sparkleMasterTimer" message="masterSparkleMsg" timerDelay=".1" duration="5" repeat="1" />
-
-                <event type="onMessage" message="masterSparkleMsg" name="sparkleMasterTimer">
-                        <python file="script.py" function="masterSparkle" args="">bg</python>
-                </event>
-
-                <event type="onInit">
-                        <python file="script.py" function="debug" args="Init BG">bg</python>
-                        <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="3" timerDelay=".1" timerRepeat="1"/>
-                </event>
--->
-
                         <content>
                <image name="bg">
                             <position>Point(640,400,0)</position>
@@ -38,13 +25,6 @@
                 	<timer name="sketch" message="sketchMsg" timerDelay=".1" duration="60000" repeat="1" />
 
                         <content>
-<!--
-                        	<image name="one">
-                                	<file input="content_image">images/sketch_back.png</file>
-                                	<show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="sinusInOutFunc" />
-                                	<hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="sinusInOutFunc" />
-                        	</image>
--->
 				<instance class="sketchSet" replace="*">
 					<name input="sname">set1</name>
 				</instance>
@@ -190,9 +170,9 @@
                         <content>
 
                         <video name="tvideo" loop="regular" autoplay="0" delay="1">
-                                <file input="video_file">videos/sxsw/0.mov</file>
+                                <file input="video_file">videos/sxsw/1.mov</file>
                                 <position>Point(0,0,0)</position>
-                                <scale>Point(.8,.8,1)</scale>
+                                <!--scale>Point(1,1,1)</scale-->
                         </video>
 
                         <image name="off">
@@ -202,9 +182,8 @@
                                 <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
                         </image>
 
-                  	<handSensor input="handSensing1">rect(-300,200,20,20)</handSensor>
+                  	<handSensor input="handSensing1">rect(-275,225,40,40)</handSensor>
                         </content>
-
 
                 	<event type="onTouchPress">
 				<hide>tvideo</hide>
@@ -216,8 +195,12 @@
                                 <show>tvideo</show>
                         </event>
 
+			<event type="onMessage" message="stopVideo">
+                        	<python file="script.py" function="debug" args="STOP VIDEO NOW">tvideo</python>
+                                <hide>tvideo</hide>
+                        </event>
+
                         <event type="onInit">
-				<hide>tvideo</hide>
                         </event>
                 </perchObject>
    	</class>

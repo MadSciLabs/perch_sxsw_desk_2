@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<root>
+	<resources path="resources_RB" />
+	<layout file="Nordstum_shoes-layout.xml" />
+	<ping>20000</ping>
+	<template file="Nordstum_shoes-templates.xml" />
+	<debug>1</debug>
+	<textSize>10</textSize>
+	<kinectRes>640</kinectRes>
+	<init>10</init>
+	<idle>5</idle>
+</root>

@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<root>
+    
+<!-- ####################################   STARTS THE PRODUCT MIX   #####################################################    -->
+
+	<class name="product_toggle">
+		<perchObject name="toggler">
+			
+            <!--  name of the product -->
+			<name input="product_name">product_name</name>
+			
+			<!--  position of the product -->
+			<position input="productPos">Point(0,0,0)</position>
+			<timer name="light_up_flare_timer" message="pop_flare" timerDuration="0" repeat="0" delay="0"/>
+			<!--  content of the product: spotlight, pick_me_up signal and the switch -->
+			<content>
+				
+				<!-- pickup sound -->
+				<soundObject name="soundThing" input="soundfile" multiplay="1" loop="0">
+					<file input="soundFileName">media/snow1.mp3</file>
+				</soundObject>
+				
+				<!-- light chaser -->
+				<!--
+				<pulsingStar input="starPulse" name="starfish" duration="8" delay="2" image="images/light_up_flare.png" />
+				-->
+				
+                <!-- sensing area -->
+				<sensingArea input="objectSenseRect">rect(0,0,120,120)</sensingArea>
+				
+				<!-- the switch -->
+				<instance class="content_switcher">
+                    <name input="switch_name">content_switch</name>
+					<position input="switch_position">Point(0,0,0)</position>
+					<file input="details_file">images/details/d1.png</file>
+					<folder input="how_to_wear_folder" type="images">images/how_to_wear</folder>
+				</instance>
+                
+                <image name="pick_up_blast">
+                    <file input="spotlight_star">images/pick_up_blast.png</file>
+                    <hide input="button_hide" scale="Point( 0,0,1 )" alpha="1" repeat="none" duration="0" function="sinusInOutFunc" />
+					<show input="button_show" scale="Point( 2,2,1 )" alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+                </image>
+				
+				<!-- put me down signal -->
+				<image name="put_me_back">
+					<scale>Point( 0,0,1 )</scale>
+					<file>images/light_up_flare.png</file>
+					<show start_scale="Point( 0,0,1 )" scale="Point( 0.6,0.6,1 )" start_alpha="0" alpha="1" repeat="pingpong" numRepeat="5" duration="0.5" function="sinusInOutFunc" />
+					<hide scale="Point( 0.0,0.0,1 )" alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</image>
+				
+                <image name="spotlight">
+                    <file>images/spotlight.png</file>
+					<position input="spotlight_pos">Point(0,0,0)</position>
+                </image>
+				
+				<!-- purple glow behind pick me up -->
+				<image name="pickup_glow">
+                    <file>images/pick_me_up_light.png</file>
+					<position>Point(0,110,0)</position>
+					<show scale="Point( 1.3,1.3,1 )" alpha="1" delay="0" repeat="pingpong" duration="1" function="quartInOutFunc" />
+					<hide scale="Point( 1,1,1 )" alpha="0" delay="0" repeat="none" duration="0" function="sinusInOutFunc" />
+                </image>
+
+				<!-- pickme up -->
+                <image name="pickup">
+                    <file>images/pick_me_up.png</file>
+					<show scale="Point( 1.1,1.1,1 )" start_alpha="1" alpha="1" delay="0" repeat="pingpong" duration="1" function="sinusInOutFunc" />
+					<hide scale="Point( 1,1,1 )" alpha="0" delay="0" repeat="none" duration="0" function="quartInOutFunc" />
+					<position>Point(0,100,0)</position>
+                </image>
+			</content>
+            
+			<!--  what will be displayed at the begining  -->
+			<event type="onInit">
+				<hide>pick_up_blast</hide>
+				<hide>pickup</hide>
+				<hide>pickup_glow</hide>
+                <hide>spotlight</hide>
+				<hide>content_switch</hide>
+				<hide>put_me_back</hide>
+		    </event>
+			
+			<!--  what will be displayed when the product is on the table  -->
+			<event type="onPresent">
+				<hide>pick_up_blast</hide>
+				<show>pickup</show>
+				<show>pickup_glow</show>
+                <show>spotlight</show>
+				<hide>content_switch</hide>
+				<show>starfish</show>
+				<show>put_me_back</show>
+				<track capture="1" threshold="1" />
+	        </event>
+			
+			<!--  what will be displayed when we removed the object  -->
+			<event type="onNotPresent">
+				<broadcast_message />
+				<show>pick_up_blast</show>
+				<hide>pickup</hide>
+				<hide>pickup_glow</hide>
+                <hide>spotlight</hide>
+				<show>content_switch</show>
+				<hide>idleHolder</hide>
+				<hide>starfish</hide>
+				<show>soundThing</show>
+				<hide>put_me_back</hide>
+			</event>
+		
+		</perchObject>
+	</class>
+
+	<!-- ####################################   CONTENT SWITCHER   #####################################################    -->
+    
+    <class name="content_switcher">
+		
+		<perchObject>
+			<name input="switch_name">noname</name>
+			<position input="switch_position">Point(0,0,0)</position>
+			<content>
+                
+				<!--  switch content  -->
+				
+				<image name="shadow" file="images/shadow.png">
+					<position>Point(1,1,0)</position>
+				</image>
+				
+				<image name="details">
+					<file input="details_file">images/details/d1.png</file>
+					<show start_alpha="0" alpha="1" start_scale="Point(0.8,0.8,1)" scale="Point(1,1,1)" repeat="none" duration="1" function="sinusInOutFunc" />
+					<hide alpha="0" repeat="none" duration="0" function="sinusInOutFunc" />
+				</image>
+				 
+				<slideshow>
+					<name>how_to_wear</name>
+					<mask>rect(0,0,380,300)</mask>
+					<folder input="how_to_wear_folder" type="images">images/how_to_wear</folder>
+					<repeat>regular</repeat>
+					<rate>8</rate>
+					<tweenIn start_position="Point(0,0,0)" position="Point(0,-90,0)" start_scale="Point(0.5,0.5,1)" scale="Point(0.8,0.8,1)" start_alpha="1" alpha="1" delay="2" repeat="none" duration="6" function="sinusInOutFunc" />
+					<tweenOut start_scale="Point(1,1,1)" start_alpha="1" alpha="0" delay="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</slideshow>
+
+				<instance class="slideshow">
+					<name input="slideshow_name">tryMeOn</name>
+					<folder input="slideshow_folder" type="images">images/try_me_on</folder>
+					<timer input="timer_settings" name="slideshowTimer" message="switchSlide" duration="4" repeat="1" timerDelay="0"/>
+				</instance>
+			
+				<!-- switch buttons  -->
+				<instance class="button">
+					<file  input="defaultI1">images/button_1.png</file>
+					<file  input="selectI1">images/button_1_select.png</file>
+					<name input="button_name">button1</name>
+					<position input="button_position">Point(-97,180,0)</position>
+				</instance>
+				
+				<instance class="button">
+					<file  input="defaultI1">images/button_2.png</file>
+					<file  input="selectI1">images/button_2_select.png</file>
+					<name input="button_name">button2</name>
+					<position input="button_position">Point(97,180,0)</position>
+					<position input="player_position">Point(-1,2,0)</position>
+				</instance>
+				
+			</content>
+			
+            <!-- events  -->
+			<event type="onInit">
+				<tell_message message="deselect">button1</tell_message>
+				<tell_message message="select">button2</tell_message>
+				<hide>details</hide>
+				<show>how_to_wear</show>
+				<hide>tryMeOn</hide>
+			</event>
+			
+			<event type="onShow">
+				<tell_message message="select">button1</tell_message>
+				<tell_message message="deselect">button2</tell_message>
+				<show>details</show>
+				<hide>how_to_wear</hide>
+			</event>
+            
+			<event type="onMessage" message="button_press" name="button1">
+				<tell_message message="select">button1</tell_message>
+				<tell_message message="deselect">button2</tell_message>
+				<show>details</show>
+				<hide>how_to_wear</hide>
+			</event>
+			
+			<event type="onMessage" message="button_press" name="button2">
+				<tell_message message="deselect">button1</tell_message>
+				<tell_message message="select">button2</tell_message>
+				<hide>details</hide>
+				<show>how_to_wear</show>
+			</event>
+			
+			<event type="onIdle">
+				<show>tryMeOn</show>
+			</event>
+			
+			<event type="onApproach">
+				<hide>tryMeOn</hide>
+			</event>
+								
+		</perchObject>
+	</class>
+	
+<!-- ####################################   BUTTON   #####################################################    -->
+	
+	<class name="button">
+		<perchObject>
+			<name input="button_name">noname</name>
+			<position input="button_position">Point(0,0,0)</position>
+			<content protected="1">
+				
+				<handSensor>rect(0,0,100,100)</handSensor>
+
+				<!--  image of the button when is not selected  -->
+				
+				<image>
+					<file>images/button_back.png</file>
+				</image>
+				
+				<image>
+					<file>images/button_back.png</file>
+					<name>backGraphics</name>
+					<fill_color>rgb( 9,156,252 )</fill_color>
+					<show start_alpha="0" alpha="0.5" repeat="pingpong" duration="1" function="sinusInOutFunc" />
+					<hide alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</image>
+				
+				<image>
+					<file input="defaultI1">images/button1.png</file>
+					<name>defaultGraphics</name>
+				</image>
+				
+				<!--  image of the button when is selected  -->
+				<image>
+					<file input="selectI1">images/button1_selected.png</file>
+					<name>selectGraphics</name>
+				</image>
+				
+				<!--
+				<perchObject name="gradiant">
+					<mask>rect(0,0,190,52)</mask>					
+					<content>
+						<image name="thing">
+							<position>Point( -250,0,0 )</position>
+							<file>images/gradiant.png</file>
+							<show start_position="Point( -300,0,0 )" position="Point( 300,0,0 )" alpha="1" delay="0" repeat="regular" numRepeat="-1" duration="3" function="sinusInOutFunc" />
+							<hide position="Point( -250,0,0 )" alpha="0" delay="0" repeat="none" duration="0" function="sinusInOutFunc" />
+						</image>
+					</content>
+
+					<event type="onInit">
+						<hide>thing</hide>
+					</event>
+					<event type="onHide">
+						<hide>thing</hide>
+					</event>
+					<event type="onShow">
+						<show>thing</show>
+					</event>
+				</perchObject>
+				 -->
+				
+			</content>
+		
+			<event type="onTouchPress">
+				<bubble_message message="button_press"/>
+			</event>
+			
+			<event type="onInit">
+				<show>defaultGraphics</show>
+				<show>backGraphics</show>
+				<hide>gradiant</hide>
+				<hide>selectGraphics</hide>
+			</event>
+			
+			<event type="onMessage" message="select">
+				<hide>defaultGraphics</hide>
+				<hide>backGraphics</hide>
+				<hide>gradiant</hide>
+				<show>selectGraphics</show>
+			</event>
+			
+			<event type="onMessage" message="deselect">
+				<show>defaultGraphics</show>
+				<show>backGraphics</show>
+				<show>gradiant</show>
+				<hide>selectGraphics</hide>
+			</event>
+			
+		</perchObject>
+	</class>
+
+<!-- ####################################   SLIDESHOW   #####################################################    -->
+    
+    <class name="slideshow">
+		<perchObject>
+			<name input="slideshow_name">noname</name>
+			<position input="slideshow_position">Point(0,0,0)</position>
+			<timer input="timer_settings" name="slideshowTimer" message="switchSlide" duration="4" repeat="1" timerDelay="0"/>
+			<content>
+				<tweenIn  alpha="1" delay="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				<tweenOut alpha="0" delay="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				<folder input="slideshow_folder" type="images">images/backgrounds_full</folder>
+			</content>
+			
+			<event type="onInit">
+				<hideAll/>
+			</event>
+			
+			<event type="onMessage" message="switchSlide" name="slideshowTimer">
+				<showNextChild/>
+			</event>
+			
+		</perchObject>
+	</class>
+	
+<!-- ####################################   PNG PLAYER   #####################################################    -->
+
+	<class name="pngMovie2">
+		<pngPlayer>
+			<name input="pngMovieName">pnger1</name>
+			<position input="player_position">Point(0,0,0)</position>
+			<timer name="pngTimer" message="pngSwitch" duration="0.15" />
+			<rate>2</rate>
+			<loop input="loopMode">0</loop>
+
+			<content protected="0">
+				<folder input="pngFolder_content" type="images">text_animations/backgrounds_full</folder>
+			</content>
+						
+			<event type="onInit">
+				<hideAll/>
+				<show filter="index:0" />
+			</event>
+			
+			<event type="onShow">
+				<hideAll/>
+				<show filter="index:0" />
+			</event>
+		</pngPlayer>
+	</class>
+
+<!-- ####################################   RETURN ME   #####################################################    -->
+	
+	<class name="return_me">
+		<perchObject>
+			<name>return_me</name>
+			<position input="return_me_position">Point(0,0,0)</position>
+			<content>
+				<handSensor size="rect(-40,100,400,400)"/>
+					
+				<image name="light_up_flare">
+					<scale>Point( 0,0,1 )</scale>
+					<file>images/light_up_flare.png</file>
+					<show start_scale="Point( 0,0,1 )" scale="Point( 0.6,0.6,1 )" start_alpha="0" alpha="1" repeat="pingpong" numRepeat="1" duration="1" function="sinusInOutFunc" />
+					<hide scale="Point( 0.0,0.0,1 )" alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</image>
+					
+			</content>
+			
+			<event type="onInit">
+				<hide>light_up_flare</hide>
+			</event>
+				
+			<event type="onTouchEnter">
+				<show>light_up_flare</show>
+			</event>
+			
+			<event type="onTouchLeave">
+				<hide>light_up_flare</hide>
+			</event>
+		</perchObject>
+	</class>
+	
+<!-- ####################################   VIDEO BUTTON   #####################################################    -->
+	
+	<class name="video_button">
+		<perchObject>
+			<name>designer_video</name>
+			<position>Point(632,166,0)</position>
+			<content>
+				
+				<!-- vid stuff -->
+				<image name="shadow" file="images/shadow.png">
+					<position>Point(1,1,0)</position>
+					<show position="Point( 1,0,0 )" alpha="1" repeat="none" duration="1" function="sinusInOutFunc" />
+					<hide position="Point( 1,-499,0 )" alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</image>
+				
+				<FFMP name="video" loop="none" autoplay="0">
+					<file input="video_file">media/designer_talk_small.mov</file>
+					<show position="Point( 0,0,0 )" alpha="1" repeat="none" duration="1" function="sinusInOutFunc" />
+					<hide position="Point( 0,-500,0 )" alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</FFMP>
+				
+				<image name="title">
+					<file input="title_file">images/video_name_bar.png</file>
+					<position>Point(0,182,0)</position>
+					<show position="Point( 0,182,0 )" alpha="1" repeat="none" duration="1" function="sinusInOutFunc" />
+					<hide position="Point( 0,-315,0 )" alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</image>
+				<!--
+				<soundObject name="guySpeaking" input="soundfile" multiplay="1" loop="0">
+					<file input="guySpeakingFile">media/just_audio.mp3</file>
+				</soundObject>
+				-->
+				<!-- vid stuff -->
+				
+				<image>
+					<name>vidButton</name>
+					<file>images/video_button.png</file>
+					<position>Point(10,150,0)</position>
+					<show alpha="1" repeat="none" duration="1" function="sinusInOutFunc" />
+					<hide alpha="0" repeat="none" duration="1" function="sinusInOutFunc" />
+				</image>
+				
+				<handSensor name="frank" size="rect(-135,140,120,120)">
+					<show start_position="Point( 0,-400,0 )" alpha="1" position="Point( 0,0,0 )" repeat="none" duration="0.2" function="sinusInOutFunc" />
+					<hide position="Point( 0,-400,0 )" alpha="1" repeat="none" duration="0" function="sinusInOutFunc" />
+				</handSensor>
+			</content>
+			
+			<event type="onTouchPress" name="frank">
+				<hide>vidButton</hide>
+				<show>title</show>
+				<show>shadow</show>
+				<show>video</show>
+				<show>guySpeaking</show>
+				<hide>frank</hide>
+			</event>
+			
+			<event type="onTouchLeave">
+			</event>
+			
+			<event type="onInit">
+				<show>vidButton</show>
+				<hide>title</hide>
+				<hide>shadow</hide>
+				<hide>video</hide>
+				<show>frank</show>
+			</event>
+			
+			<event type="onMessage" message="video_done" name="video">
+				<show>vidButton</show>
+				<hide>title</hide>
+				<hide>shadow</hide>
+				<hide>video</hide>
+				<show>frank</show>
+			</event>
+			
+		</perchObject>
+	</class>
+
+</root>
+

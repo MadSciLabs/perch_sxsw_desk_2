@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<root>
+	
+	<!--
+	<FFMP name="video" loop="regular" autoplay="1">
+		<position>Point(640,400,0)</position>
+		<file>media/background.mov</file>
+	</FFMP>
+	<flowField />
+	-->
+	
+	<!--- background slideshow -->
+	<instance class="slideshow">
+		<position input="slideshow_position">Point(640,400,0)</position>
+		<folder input="slideshow_folder" type="images">images/BACKGROUND</folder>
+	</instance>
+
+	<!--- brand logo -->
+	<image file="images/logo.png">
+		<position>Point(640,120,0)</position>
+	</image>
+	
+	<!--- designer video -->
+	<instance class="video_button" replace="1">
+		<file input="video_file">VIDEO/video.mov</file>
+		<file input="title_file">images/video_name_bar.png</file>
+	</instance>
+	
+	<!--- top left -->
+	<instance class="product_toggle" replace="1">
+        <name input="product_name">product1</name>
+        <position input="productPos">Point(226,167,0)</position>
+		<sensingArea name="objectSensor_0" input="objectSenseRect">rect(0,0,300,240)</sensingArea>]
+		<file input="soundFileName">media/a1.mp3</file>
+		<file input="details_file">images/DETAILS/1.png</file>
+		<folder input="how_to_wear_folder" type="images">images/HOW_TO_WEAR/1</folder>
+    </instance>
+	
+	<!--- bottom left -->
+	<instance class="product_toggle" replace="1">
+        <name input="product_name">product2</name>
+        <position input="productPos">Point(246,520,0)</position>
+		<position input="switch_position">Point(-20,20,0)</position>
+		<sensingArea name="objectSensor_2" input="objectSenseRect">rect(0,0,300,240)</sensingArea>
+		<file input="soundFileName">media/a2.mp3</file>
+		<file input="details_file">images/DETAILS/2.png</file>
+		<folder input="how_to_wear_folder" type="images">images/HOW_TO_WEAR/2</folder>
+    </instance>
+
+	<!--- bottom center -->
+	<instance class="product_toggle" replace="1">
+        <name input="product_name">product3</name>
+        <position input="productPos">Point(632,560,0)</position>
+		<position input="flare_pos">Point(0,0,0)</position>
+		<position input="switch_position">Point(0,-20,0)</position>
+        <sensingArea name="objectSensor_3" input="objectSenseRect">rect(0,0,300,240)</sensingArea>
+		<file input="soundFileName">media/a3.mp3</file>
+		<file input="details_file">images/DETAILS/3.png</file>
+		<folder input="how_to_wear_folder" type="images">images/HOW_TO_WEAR/3</folder>
+    </instance>
+		
+	<!--- bottom right -->
+	<instance class="product_toggle" replace="1">
+        <name input="product_name">product4</name>
+        <position input="productPos">Point(1020,520,0)</position>
+		<position input="switch_position">Point(20,20,0)</position>
+        <sensingArea name="objectSensor_4" input="objectSenseRect">rect(0,0,300,240)</sensingArea>
+		<file input="soundFileName">media/a4.mp3</file>
+		<file input="details_file">images/DETAILS/4.png</file>
+		<folder input="how_to_wear_folder" type="images">images/HOW_TO_WEAR/4</folder>
+    </instance>
+	
+	<!--- top right -->
+	<instance class="product_toggle" replace="1">
+        <name input="product_name">product5</name>
+        <position input="productPos">Point(1040,167,0)</position>
+		<position input="flare_pos">Point(0,0,0)</position>
+        <sensingArea name="objectSensor_5" input="objectSenseRect">rect(0,0,300,240)</sensingArea>
+		<file input="soundFileName">media/a5.mp3</file>
+		<file input="details_file">images/DETAILS/5.png</file>
+		<folder input="how_to_wear_folder" type="images">images/HOW_TO_WEAR/5</folder>
+    </instance>
+    
+
+	
+	<!--- finger effect -->
+	<!--
+	<fingerFountain image="images/star.png" />
+	-->
+	
+</root>	

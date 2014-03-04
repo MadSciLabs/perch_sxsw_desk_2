@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<item name="root" type="6">
+	<item name="ObjectSettings" type="3">Point(535,128,0)</item>
+	<item name="buttonData" type="2">''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''</item>
+	<item name="defaultObject_range" type="3">Point(0,0,0)</item>
+	<item name="framesPersistent" type="0">8</item>
+	<item name="lowerDenominator" type="1">1.000000</item>
+	<item name="objectHoverRange" type="3">Point(0,0,0)</item>
+	<item name="objectSensingData" type="2">''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''</item>
+	<item name="objectSensor_0_range" type="3">Point(20.6673,258.333,0)</item>
+	<item name="objectSensor_1_range" type="3">Point(20.6664,278.997,0)</item>
+	<item name="objectSensor_2_range" type="3">Point(20.6673,310,0)</item>
+	<item name="objectSensor_3_range" type="3">Point(20.6679,341.001,0)</item>
+	<item name="objectSensor_4_range" type="3">Point(20.6673,310.001,0)</item>
+	<item name="objectSensor_5_range" type="3">Point(41.3333,237.667,0)</item>
+	<item name="objectSensor_range" type="3">Point(92.9992,837,0)</item>
+	<item name="objectTouchRange" type="3">Point(0,0,0)</item>
+	<item name="percentInRange_threshold" type="1">0.006667</item>
+	<item name="showHide" type="0">1</item>
+</item>
