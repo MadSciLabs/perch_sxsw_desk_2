@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<item name="root" type="6">
+	<item name="colorVar" type="3">Point(0,0,0)</item>
+	<item name="dampingVar" type="3">Point(0,0.186667,0)</item>
+	<item name="emissionRate" type="3">Point(0,18.1333,0)</item>
+	<item name="frictionVar" type="3">Point(1,1,0)</item>
+	<item name="lifeSpanVar" type="3">Point(16.6665,16.6663,0)</item>
+	<item name="noiseVar" type="3">Point(0,6.4,0)</item>
+	<item name="particleControl" type="3">Point(413,19,0)</item>
+	<item name="rotationVar" type="3">Point(0.826666,1.48,0)</item>
+	<item name="showHide" type="0">1</item>
+	<item name="sizeVar" type="3">Point(10.6665,73.3332,0)</item>
+	<item name="textSize" type="0">10</item>
+	<item name="transparency" type="3">Point(0,0.373333,0)</item>
+	<item name="velInit" type="3">Point(28.3333,39.6667,0)</item>
+</item>
