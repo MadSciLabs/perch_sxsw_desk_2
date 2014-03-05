@@ -64,6 +64,9 @@
 
 		<event type="onMessage" message="start_video" name="spot2">
 
+			<tell_message message="stopVideo">video0</tell_message>
+			<tell_message message="stopVideo">video1</tell_message>
+			<tell_message message="stopVideo">video3</tell_message>
 			<hide>video1</hide>
 			<hide>video0</hide>
 			<hide>video3</hide>
@@ -75,6 +78,9 @@
 
 		<event type="onMessage" message="start_video" name="spot3">
 
+			<tell_message message="stopVideo">video0</tell_message>
+			<tell_message message="stopVideo">video2</tell_message>
+			<tell_message message="stopVideo">video1</tell_message>
 			<hide>video1</hide>
 			<hide>video2</hide>
 			<hide>video0</hide>
