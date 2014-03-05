@@ -124,6 +124,7 @@
 
                 <content>
                 	<handSensor input="handSensing1">rect(0,0,100,100)</handSensor>
+
                         <image name="one">
                                 <file input="content_image">images/spotlight_circle.png</file>
                                 <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="linearFunc" />
@@ -161,7 +162,7 @@
                 </event>
 
                 <event type="onMessage" message="videoMsg" name="videoTimer">
-			<--python file="script.py" function="lockSpot" args="*">one</python-->
+			<!--python file="script.py" function="lockSpot" args="*">one</python-->
                         <bubble_message message="start_video" />
                 </event>
 
