@@ -26,10 +26,12 @@
 
                 <event type="onInit">
 
+			<hide>video0</hide>
 			<hide>video1</hide>
 			<hide>video2</hide>
 			<hide>video3</hide>
-			<hide>video0</hide>
+			<hide>video4</hide>
+			<hide>video5</hide>
 
                         <timerReset name="sparkleMasterTimer" message="masterSparkleMsg" timerDuration="5" timerDelay=".1" timerRepeat="1"/>
                 </event>
@@ -40,9 +42,13 @@
 			<tell_message message="stopVideo">video1</tell_message>
 			<tell_message message="stopVideo">video2</tell_message>
 			<tell_message message="stopVideo">video3</tell_message>
+			<tell_message message="stopVideo">video4</tell_message>
+			<tell_message message="stopVideo">video5</tell_message>
 			<hide>video1</hide>
 			<hide>video2</hide>
 			<hide>video3</hide>
+			<hide>video4</hide>
+			<hide>video5</hide>
 
 			<show>video0</show>
 			<tell_message message="startVideo">video0</tell_message>
@@ -52,9 +58,13 @@
 			<tell_message message="stopVideo">video0</tell_message>
 			<tell_message message="stopVideo">video2</tell_message>
 			<tell_message message="stopVideo">video3</tell_message>
+			<tell_message message="stopVideo">video4</tell_message>
+			<tell_message message="stopVideo">video5</tell_message>
 			<hide>video0</hide>
 			<hide>video2</hide>
 			<hide>video3</hide>
+			<hide>video4</hide>
+			<hide>video5</hide>
 
 			<hide>sketch_back</hide>
 
@@ -67,9 +77,13 @@
 			<tell_message message="stopVideo">video0</tell_message>
 			<tell_message message="stopVideo">video1</tell_message>
 			<tell_message message="stopVideo">video3</tell_message>
-			<hide>video1</hide>
+			<tell_message message="stopVideo">video4</tell_message>
+			<tell_message message="stopVideo">video5</tell_message>
 			<hide>video0</hide>
+			<hide>video1</hide>
 			<hide>video3</hide>
+			<hide>video4</hide>
+			<hide>video5</hide>
 
 			<hide>sketch_back</hide>
 			<show>video2</show>
@@ -79,15 +93,55 @@
 		<event type="onMessage" message="start_video" name="spot3">
 
 			<tell_message message="stopVideo">video0</tell_message>
-			<tell_message message="stopVideo">video2</tell_message>
 			<tell_message message="stopVideo">video1</tell_message>
+			<tell_message message="stopVideo">video2</tell_message>
+			<tell_message message="stopVideo">video4</tell_message>
+			<tell_message message="stopVideo">video5</tell_message>
+			<hide>video0</hide>
 			<hide>video1</hide>
 			<hide>video2</hide>
-			<hide>video0</hide>
+			<hide>video4</hide>
+			<hide>video5</hide>
 
 			<hide>sketch_back</hide>
 			<show>video3</show>
 			<tell_message message="startVideo">video3</tell_message>
+                </event>
+
+		<event type="onMessage" message="start_video" name="spot4">
+
+			<tell_message message="stopVideo">video0</tell_message>
+			<tell_message message="stopVideo">video1</tell_message>
+			<tell_message message="stopVideo">video2</tell_message>
+			<tell_message message="stopVideo">video3</tell_message>
+			<tell_message message="stopVideo">video5</tell_message>
+			<hide>video0</hide>
+			<hide>video1</hide>
+			<hide>video2</hide>
+			<hide>video3</hide>
+			<hide>video5</hide>
+
+			<hide>sketch_back</hide>
+			<show>video4</show>
+			<tell_message message="startVideo">video4</tell_message>
+                </event>
+
+		<event type="onMessage" message="start_video" name="spot5">
+
+			<tell_message message="stopVideo">video0</tell_message>
+			<tell_message message="stopVideo">video1</tell_message>
+			<tell_message message="stopVideo">video2</tell_message>
+			<tell_message message="stopVideo">video3</tell_message>
+			<tell_message message="stopVideo">video4</tell_message>
+			<hide>video0</hide>
+			<hide>video1</hide>
+			<hide>video2</hide>
+			<hide>video3</hide>
+			<hide>video4</hide>
+
+			<hide>sketch_back</hide>
+			<show>video5</show>
+			<tell_message message="startVideo">video5</tell_message>
                 </event>
 
 
@@ -107,30 +161,24 @@
 			<hide>video2</hide>
 			<show>sketch_back</show>
                 </event>
+
 		<event type="onMessage" message="hide_video" name="video3">
 			<hide>video3</hide>
 			<show>sketch_back</show>
                 </event>
 
+		<event type="onMessage" message="hide_video" name="video4">
+			<hide>video4</hide>
+			<show>sketch_back</show>
+                </event>
+
+		<event type="onMessage" message="hide_video" name="video5">
+			<hide>video5</hide>
+			<show>sketch_back</show>
+                </event>
 
 		<content>
 
-                <instance class="spotlight" replace="0" >
-			<name input="tname">spot0</name>
-                        <position input="pos">Point(150,500,0)</position>
-                </instance> 
-                <instance class="spotlight" replace="1" >
-			<name input="tname">spot1</name>
-                        <position input="pos">Point(500,700,0)</position>
-                </instance>
-                <instance class="spotlight" replace="2" >
-			<name input="tname">spot2</name>
-                        <position input="pos">Point(800,600,0)</position>
-                </instance>
-                <instance class="spotlight" replace="3" >
-			<name input="tname">spot3</name>
-                        <position input="pos">Point(1100,350,0)</position>
-                </instance>
 
                 <image name="sketch_back">
                     <file input="content_image">images/HAVAS.jpg</file>
@@ -163,6 +211,43 @@
                         <position input="pos">Point(640,300,0)</position>
 		</instance>
 
+		<instance class="videos" replace="4">
+			<file input="video_file">videos/sxsw/4.mov</file>
+			<name input="vname">video4</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+
+		<instance class="videos" replace="5">
+			<file input="video_file">videos/sxsw/5.mov</file>
+			<name input="vname">video5</name>
+                        <position input="pos">Point(640,300,0)</position>
+		</instance>
+
+
+                <instance class="spotlight" replace="0" >
+			<name input="tname">spot0</name>
+                        <position input="pos">Point(150,500,0)</position>
+                </instance> 
+                <instance class="spotlight" replace="1" >
+			<name input="tname">spot1</name>
+                        <position input="pos">Point(500,700,0)</position>
+                </instance>
+                <instance class="spotlight" replace="2" >
+			<name input="tname">spot2</name>
+                        <position input="pos">Point(800,600,0)</position>
+                </instance>
+                <instance class="spotlight" replace="3" >
+			<name input="tname">spot3</name>
+                        <position input="pos">Point(1100,350,0)</position>
+                </instance>
+                <instance class="spotlight" replace="4" >
+			<name input="tname">spot4</name>
+                        <position input="pos">Point(100,300,0)</position>
+                </instance>
+                <instance class="spotlight" replace="5" >
+			<name input="tname">spot5</name>
+                        <position input="pos">Point(1150,250,0)</position>
+                </instance>
 <!--
         <particles name="product1">
         <origin>Point(640,200,0)</origin>
