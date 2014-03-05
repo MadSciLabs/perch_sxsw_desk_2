@@ -118,14 +118,19 @@
                         <timerReset name="sparkle" message="sparkleMsg" timerDuration="5" timerDelay=".1" timerRepeat="1" />
                 </event>
 
+               	<event type="onTouchPress">
+                        <bubble_message message="start_video" />
+               	</event>
+
                 <content>
+                	<handSensor input="handSensing1">rect(0,0,100,100)</handSensor>
                         <image name="one">
                                 <file input="content_image">images/spotlight_circle.png</file>
                                 <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="linearFunc" />
                                 <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
                         </image>
 
-                        <video name="star" loop="regular" autoplay="0" delay="1">
+                        <video name="star" loop="0" autoplay="0" delay="1">
                                 <file input="video_file">videos/shine.mov</file>
                                 <position>Point(0,0,0)</position>
                         </video>
@@ -145,18 +150,18 @@
                         <!--timerReset name="over" message="video_countdown" timerDuration="1" timerDelay=".1" timerRepeat="0"/-->
                         <!--bubble_message message="stop_preview" /-->
 			<show>star</show>
-                        <timerReset name="videoTimer" message="videoMsg" timerDuration="2" timerDelay=".1" timerRepeat="0" />
+                        <!--timerReset name="videoTimer" message="videoMsg" timerDuration="2" timerDelay=".1" timerRepeat="0" /-->
                 </event>
 
                 <event type="onNotPresent">
                         <!--timerReset name="over" message="video_countdown" timerDuration="60000" timerDelay=".1" timerRepeat="0"/-->
                         <!--bubble_message message="start_preview" /-->
 			<hide>star</hide>
-                        <timerReset name="videoTimer" message="videoMsg" timerDuration="60000" timerDelay=".1" timerRepeat="0" />
+                        <!--timerReset name="videoTimer" message="videoMsg" timerDuration="60000" timerDelay=".1" timerRepeat="0" /-->
                 </event>
 
                 <event type="onMessage" message="videoMsg" name="videoTimer">
-			<python file="script.py" function="lockSpot" args="*">one</python>
+			<--python file="script.py" function="lockSpot" args="*">one</python-->
                         <bubble_message message="start_video" />
                 </event>
 
