@@ -131,9 +131,10 @@
                                 <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
                         </image>
 
-                        <video name="star" loop="0" autoplay="0" delay="1">
+                        <video name="star" loop="regular" autoplay="0" delay="1">
                                 <file input="video_file">videos/shine.mov</file>
                                 <position>Point(0,0,0)</position>
+				<scale>Point(.8,.8,1)</scale>
                         </video>
 
 <!--
@@ -178,7 +179,7 @@
 	<class name="videos">
     
                 <perchObject>
-                        <position input="pos">Point(0,0,0)</position>
+                        <position input="pos">Point(640,300,0)</position>
                         <name input="vname">noname</name>
 
                         <content>
@@ -191,12 +192,12 @@
 
                         <image name="off">
                                 <file>images/off.png</file>
-                                <position>Point(-275,225,0)</position>
+                                <position>Point(304,225,0)</position>
                                 <show start_alpha="0" start_scale="Point( 1,1,1 )" scale="Point( 1,1,1 )" alpha="1" duration=".5" repeat="none" function="linearFunc" />
                                 <hide start_alpha="1" scale="Point( 1,1,1 )" start_scale="Point( 1,1,1 )" alpha="0" duration=".5" repeat="none" function="linearFunc" />
                         </image>
 
-                  	<handSensor input="handSensing1">rect(-275,225,40,40)</handSensor>
+                  	<handSensor input="handSensing1">rect(304,225,40,40)</handSensor>
                         </content>
 
                 	<event type="onTouchPress">

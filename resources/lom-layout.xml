@@ -218,7 +218,7 @@
 		</instance>
 
 		<instance class="videos" replace="5">
-			<file input="video_file">videos/sxsw/5.mov</file>
+			<file input="video_file">videos/sxsw/5.mp4</file>
 			<name input="vname">video5</name>
                         <position input="pos">Point(640,300,0)</position>
 		</instance>
